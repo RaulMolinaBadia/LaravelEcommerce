@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('bank_data', function (Blueprint $table) {
             $table->id();
             $table->string('bank_name');
-            $table->string('account_number');
+            $table->integer('IBAN');
             $table->decimal('money');
             $table->timestamps();
         });

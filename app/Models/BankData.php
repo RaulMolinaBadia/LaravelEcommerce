@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class BankData extends Model
 {
-    use HasFactory;
+    protected $fillable = ['bank_name','IBAN','money'];
 }

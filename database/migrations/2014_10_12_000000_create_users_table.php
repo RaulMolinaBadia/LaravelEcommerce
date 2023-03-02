@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->unsignedBigInteger('bank_data_id')->nullable();
+            $table->foreign('bank_data_id')->references('id')->on('bank_data');
             $table->string('role')->default('user');
             $table->rememberToken();
             $table->timestamps();

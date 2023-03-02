@@ -1,9 +1,10 @@
 <?php
 
 use App\Http\Controllers\AppController;
-use App\Http\Controllers\userController;
+// use App\Http\Controllers\userController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductosController;
 
 // Route::get('/', [AppController::class,'index']);
 Route::get('/form', [AppController::class,'procesar']);
@@ -15,6 +16,14 @@ Route::get('/busca', [AppController::class,'busca']);
 // }]);
 // Route::post('/login', [userController::class,'login']);
 // Route::get('/logout', [userController::class,'logout']);
+
+Route::get('/productos', [ProductosController::class, 'index']);
+Route::get('/productos/create', [ProductosController::class, 'create']);
+Route::post('/productos', [ProductosController::class, 'store']);
+Route::get('/productos/{id}', [ProductosController::class, 'show']);
+Route::get('/productos/{id}/edit', [ProductosController::class, 'edit']);
+Route::put('/productos/{id}', [ProductosController::class, 'update']);
+Route::get('/productos/{id}/delete', [ProductosController::class, 'destroy']);
 
 Route::get('/', function () {
     return view('welcome');
