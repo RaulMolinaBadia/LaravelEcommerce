@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Laravel</title>
+    <link rel="shortcut icon" href="/img/icon32.png" type="image/x-icon">
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="{{ asset('./css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('./css/welcome/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('./css/buttons/styles.css') }}">
 </head>
 
 <body>

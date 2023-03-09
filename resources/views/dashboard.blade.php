@@ -1,13 +1,23 @@
-<x-app-layout>
-    <x-slot name="header" class="flex">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            <button><a class="btn btn-success btn-dark" href="/productos">View Videojuegos</a></button>
-        </h2>
-        @if (Auth::user()->role == 'admin')
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            <button><a class="btn btn-success" href="/productos/create">Create Videogames</a></button>
-        </h2>
-        @endif
-        {{-- <a class="btn btn-success" href="/productos">Crear Categorias</a><br> --}}
-    </x-slot>
-</x-app-layout>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('./css/buttons/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('./css/cards/styles.css') }}">
+    <link rel="shortcut icon" href="/img/icon32.png" type="image/x-icon">
+</head>
+
+<body>
+    <x-app-layout>
+        {{-- <x-slot name="header" class="flex">
+
+        </x-slot> --}}
+
+    </x-app-layout>
+</body>
+
+</html>

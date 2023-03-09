@@ -6,18 +6,26 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        {{-- <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" /> --}}
+                        <img class="icon" src="/img/icon32.png" alt="" srcset="">
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link href="/">
+                        Home
+                    </x-nav-link>
                     <x-nav-link href="/productos">
                         Productos
                     </x-nav-link>
                     <x-nav-link href="/categorias">
                         Categorias
                     </x-nav-link>
+                    @if (Auth::user()->role == 'admin')
+                        <x-nav-link href="/usuarios">
+                            Usuarios
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 

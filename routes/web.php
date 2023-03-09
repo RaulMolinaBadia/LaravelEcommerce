@@ -1,22 +1,10 @@
 <?php
 
-use App\Http\Controllers\AppController;
 use App\Http\Controllers\CategoriaController;
-// use App\Http\Controllers\userController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductosController;
 
-// Route::get('/', [AppController::class,'index']);
-Route::get('/form', [AppController::class,'procesar']);
-Route::get('/productos', [AppController::class,'verProductos']);
-Route::get('/busca', [AppController::class,'busca']);
-
-// Route::get('/loginForm', [userController::class,function () {
-//     return view('loginForm');
-// }]);
-// Route::post('/login', [userController::class,'login']);
-// Route::get('/logout', [userController::class,'logout']);
 
 // PRODUCTOS
 Route::get('/productos', [ProductosController::class, 'index']);

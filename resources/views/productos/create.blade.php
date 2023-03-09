@@ -1,6 +1,6 @@
     <div>
         <h1>Crear producto</h1>
-        <form method="POST" action="/productos">
+        <form method="POST" action="/productos" enctype="multipart/form-data">
             @csrf
             <div>
                 <label for="nombre">Nombre</label>
@@ -12,7 +12,7 @@
             </div>
             <div>
                 <label for="imagen">Imagen</label>
-                <input type="text" id="imagen" name="imagen" required>
+                <input type="file" id="imagen" name="imagen" required>
             </div>
             <div>
                 <label for="precio">Precio</label>
@@ -23,7 +23,7 @@
                 <select id="categoria_id" name="categoria_id" required>
                     <option value="">Seleccionar categoría</option>
                     @foreach ($categorias as $categoria)
-                        <option value="{{ $categoria->id }}">{{ $categoria->id }}</option>
+                        <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
                     @endforeach
                 </select>
             </div>
