@@ -1,20 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('./css/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('./css/productos/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('./css/buttons/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('./css/cards/styles.css') }}">
-    <title>Document</title>
-</head>
 
-<body>
     <x-app-layout>
-
         <div>
             <div>
                 <div>
@@ -36,7 +25,7 @@
                     <p class="card-text"><strong>Precio: </strong> {{ $producto->precio }}</p>
                     <p class="card-text"><strong>Categoría: </strong> {{ $producto->categoria_id }}</p>
                     {{-- TODO --}}
-                    {{ $categoriaName = Categoria::findOrFail($producto->categoria_id) }}
+                    {{-- {{ $categoriaName = Categoria::findOrFail($producto->categoria_id) }} --}}
                     @if (Auth::user()->role == 'admin')
                         <div class="adminButtons">
                             <a class="btn" href="/productos/{{ $producto->id }}/edit">Editar</a>
@@ -47,11 +36,19 @@
                             </form>
                         </div>
                     @endif
+                    @auth
+                        <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" value="{{ $producto->id }}" name="id">
+                            <input type="hidden" value="{{ $producto->nombre }}" name="name">
+                            <input type="hidden" value="{{ $producto->precio }}" name="price">
+                            <input type="hidden" value="{{ $producto->imagen }}" name="image">
+                            <input type="hidden" value="1" name="quantity">
+                            <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">Add To Cart</button>
+                        </form>
+                    @endauth
                 </div>
                 {{-- <x-card-videogames :nombre="$producto->nombre" :descripcion="$producto->descripcion" :imagen="$producto->imagen" :precio="$producto->precio" :categoria="$producto->categoria_id" /> --}}
             @endforeach
         </div>
     </x-app-layout>
-</body>
-
-</html>

@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\CartController;
 
 
 // PRODUCTOS
@@ -23,6 +24,13 @@ Route::get('/categorias/{id}', [CategoriaController::class, 'show']);
 Route::get('/categorias/{id}/edit', [CategoriaController::class, 'edit'])->middleware('CheckRoleUser');
 Route::put('/categorias/{id}', [CategoriaController::class, 'update'])->middleware('CheckRoleUser');
 Route::get('/categorias/{id}/delete', [CategoriaController::class, 'destroy'])->middleware('CheckRoleUser');
+
+// CART
+Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
+Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
+Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
+Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
 
 Route::get('/', function () {
     return view('welcome');
