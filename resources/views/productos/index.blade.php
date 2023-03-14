@@ -9,11 +9,13 @@
                 <div>
                     <h2>Lista de productos</h2>
                 </div>
-                @if (Auth::user()->role == 'admin')
-                    <div>
-                        <a href="/productos/create"> Crear nuevo producto</a>
-                    </div>
-                @endif
+                @auth
+                    @if (Auth::user()->role == 'admin')
+                        <div>
+                            <a href="/productos/create"> Crear nuevo producto</a>
+                        </div>
+                    @endif
+                @endauth
             </div>
         </div>
         <div class="containerProducts">
@@ -26,17 +28,19 @@
                     <p class="card-text"><strong>Categoría: </strong> {{ $producto->categoria_id }}</p>
                     {{-- TODO --}}
                     {{-- {{ $categoriaName = Categoria::findOrFail($producto->categoria_id) }} --}}
-                    @if (Auth::user()->role == 'admin')
-                        <div class="adminButtons">
-                            <a class="btn" href="/productos/{{ $producto->id }}/edit">Editar</a>
-                            <form action="/productos/{{ $producto->id }}/delete" method="get">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn" type="submit">Eliminar</button>
-                            </form>
-                        </div>
-                    @endif
+
                     @auth
+                        @if (Auth::user()->role == 'admin')
+                            <div class="adminButtons">
+                                <a class="btn" href="/productos/{{ $producto->id }}/edit">Editar</a>
+                                <form action="/productos/{{ $producto->id }}/delete" method="get">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn" type="submit">Eliminar</button>
+                                </form>
+                            </div>
+                        @endif
+                        @if (Auth::user()->role == 'user')
                         <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" value="{{ $producto->id }}" name="id">
@@ -46,6 +50,7 @@
                             <input type="hidden" value="1" name="quantity">
                             <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">Add To Cart</button>
                         </form>
+                        @endif
                     @endauth
                 </div>
                 {{-- <x-card-videogames :nombre="$producto->nombre" :descripcion="$producto->descripcion" :imagen="$producto->imagen" :precio="$producto->precio" :categoria="$producto->categoria_id" /> --}}

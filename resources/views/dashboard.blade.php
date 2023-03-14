@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('./css/buttons/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('./css/cards/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('./css/styles.css') }}">
     <link rel="shortcut icon" href="/img/icon32.png" type="image/x-icon">
 </head>
 

@@ -11,6 +11,7 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="{{ asset('./css/welcome/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('./css/buttons/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('./css/styles.css') }}">
 </head>
 
 <body>

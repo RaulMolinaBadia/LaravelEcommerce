@@ -4,6 +4,6 @@
     gap: 7.5%;
     width: 100%;
     margin: 10px 0;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
 }
