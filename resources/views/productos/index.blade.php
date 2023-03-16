@@ -12,15 +12,14 @@
     <link rel="stylesheet" href="{{ asset('./css/productos.css') }}">
     <link rel="stylesheet" href="{{ asset('./css/buttons.css') }}">
     <link rel="stylesheet" href="{{ asset('./css/cards.css') }}">
+    <link rel="stylesheet" href="{{ asset('./css/cart.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+
 </head>
 
 <body>
     <div>
-        <div>
-            <div>
-                <h2>Lista de productos</h2>
-            </div>
-        </div>
+        <h2>Videogames</h2>
     </div>
     <div class="containerProducts">
         @foreach ($productos as $producto)
@@ -51,7 +50,12 @@
                             <input type="hidden" value="{{ $producto->precio }}" name="price">
                             <input type="hidden" value="{{ $producto->imagen }}" name="image">
                             <input type="hidden" value="1" name="quantity">
-                            <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">Add To Cart</button>
+                            <button class="add-to-cart-btn">
+                                {{-- <span class="text">Agregar al carrito</span> --}}
+                               <i class="fas fa-shopping-cart"></i>
+                                <span>Add to Cart</span>
+                              </button>
+                              
                         </form>
                     @endif
                 @endauth
@@ -61,4 +65,5 @@
     </div>
     {{-- </x-app-layout> --}}
 </body>
+
 </html>

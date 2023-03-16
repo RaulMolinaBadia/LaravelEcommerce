@@ -1,108 +1,74 @@
-{{-- <x-app-layout> --}}
 @include('layouts.navbar')
-
-<x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800">
-        {{ __('Cart') }}
-    </h2>
-</x-slot>
-<main class="my-8 bg-gray-900">
-    <div class="container px-6 mx-auto">
-        <div class="flex justify-center my-6">
-            <div class="flex flex-col w-full p-8 text-gray-100 bg-gray-800 shadow-lg rounded-lg md:w-4/5 lg:w-4/5">
+<link rel="stylesheet" href="{{ asset('./css/cart.css') }}">
+<main class="cart-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
                 @if ($message = Session::get('success'))
-                    <div class="p-4 mb-3 bg-green-400 rounded">
-                        <p class="text-green-800">{{ $message }}</p>
+                    <div class="alert alert-success">
+                        <p>{{ $message }}</p>
                     </div>
                 @endif
-                <h3 class="text-3xl font-bold">Carts</h3>
-                <div class="flex-1 mt-6">
-                    <table class="w-full text-sm lg:text-base" cellspacing="0">
-                        <thead>
-                            <tr class="h-12 uppercase">
-                                <th class="hidden md:table-cell"></th>
-                                <th class="text-left">Name</th>
-                                <th class="pl-5 text-left lg:text-right lg:pl-0">
-                                    <span class="lg:hidden" title="Quantity">Qtd</span>
-                                    <span class="hidden lg:inline">Quantity</span>
-                                </th>
-                                <th class="hidden text-right md:table-cell"> Price </th>
-                                <th class="hidden text-right md:table-cell"> Remove </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($cartItems as $item)
-                                <tr>
-                                    <td class="hidden pb-4 md:table-cell">
-                                        <a href="#">
-                                            <img src="{{ $item->attributes->image }}"
-                                                class="w-20 rounded-full border-4 border-yellow-500" alt="Thumbnail">
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a href="#">
-                                            <p class="mb-2 md:ml-4 text-purple-600 font-bold">{{ $item->name }}
-                                            </p>
-
-                                        </a>
-                                    </td>
-                                    <td class="justify-center mt-6 md:justify-end md:flex">
-                                        <div class="h-10 w-28">
-                                            <div class="relative flex flex-row w-full h-8">
-                                                <form action="{{ route('cart.update') }}" method="POST">
-                                                    @csrf
-                                                    <input type="hidden" name="id" value="{{ $item->id }}">
-                                                    <input type="text" name="quantity" value="{{ $item->quantity }}"
-                                                        class="w-16 text-center h-6 text-gray-800 outline-none rounded border border-blue-600" />
-                                                    <button
-                                                        class="px-4 mt-1 py-1.5 text-sm rounded rounded shadow text-violet-100 bg-violet-500">Update</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="hidden text-right md:table-cell">
-                                        <span class="text-sm font-medium lg:text-base text-green-500">
-                                            ${{ $item->price }}
-                                        </span>
-                                    </td>
-                                    <td class="hidden text-right md:table-cell">
-                                        <form action="{{ route('cart.remove') }}" method="POST">
-                                            @csrf
-                                            <input type="hidden" value="{{ $item->id }}" name="id">
-                                            <button>
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                    class="icon icon-tabler icon-tabler-circle-x" width="44"
-                                                    height="44" viewBox="0 0 24 24" stroke-width="1.5"
-                                                    stroke="#ff2825" fill="none" stroke-linecap="round"
-                                                    stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                    <circle cx="12" cy="12" r="9" />
-                                                    <path d="M10 10l4 4m0 -4l-4 4" />
-                                                </svg>
-                                            </button>
-                                        </form>
-                                    </td>
-
-                                </tr>
-                            @endforeach
-
-                        </tbody>
-                    </table>
-                    <div>
-                        Total: ${{ Cart::getTotal() }}
+                <h3 class="page-title">Carts</h3>
+                <div class="cart-items">
+                    <div class="table-header">
+                        <div class="item-image">&nbsp;</div>
+                        <div class="item-name">Name</div>
+                        <div class="item-quantity">Quantity</div>
+                        <div class="item-price">Price</div>
+                        <div class="item-remove">Remove</div>
                     </div>
-                    <div>
+                    @foreach ($cartItems as $item)
+                        <div class="cart-item">
+                            <div class="item-image">
+                                <a href="#">
+                                    <img src="{{ $item->attributes->image }}" alt="{{ $item->name }}">
+                                </a>
+                            </div>
+                            <div class="item-name">
+                                <a href="#">
+                                    <p>{{ $item->name }}</p>
+                                </a>
+                            </div>
+                            <div class="item-quantity">
+                                <form action="{{ route('cart.update') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $item->id }}">
+                                    <input type="text" name="quantity" value="{{ $item->quantity }}"
+                                        class="form-control">
+                                    <button class="update-btn">Update</button>
+                                </form>
+                            </div>
+                            <div class="item-price">
+                                <span class="price">{{ $item->price }}</span>
+                            </div>
+                            <div class="item-remove">
+                                <form action="{{ route('cart.remove') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" value="{{ $item->id }}" name="id">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="icon icon-tabler icon-tabler-circle-x" width="44" height="44"
+                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <circle cx="12" cy="12" r="9" />
+                                        <path d="M10 10l4 4m0 -4l-4 4" />
+                                    </svg>
+                                </form>
+                            </div>
+                        </div>
+                    @endforeach
+                    <div class="cart-total">
+                        Total: <span class="total-price">${{ Cart::getTotal() }}</span>
+                    </div>
+                    <div class="cart-actions">
                         <form action="{{ route('cart.clear') }}" method="POST">
                             @csrf
-                            <button class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-red-500">Clear
-                                Carts</button>
+                            <button class="clear-btn">Clear Cart</button>
                         </form>
                     </div>
-
-
                 </div>
             </div>
         </div>
     </div>
 </main>
-{{-- </x-app-layout> --}}

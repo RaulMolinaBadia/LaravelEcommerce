@@ -1,17 +1,21 @@
 <link rel="stylesheet" href="{{ asset('./css/navbar.css') }}">
 <link rel="stylesheet" href="{{ asset('./css/cart.css') }}">
-<script src="{{ asset('./a.js') }}"></script>
+{{-- <script src="{{ asset('./a.js') }}"></script> --}}
 
 <nav class="navbar">
     <div class="navbar-container">
-        <div class="navbar-logo">
-            <img src="https://via.placeholder.com/50x50" alt="Logo">
+        <div class="">
+            <img class="icon" src="/img/icon64.png" alt="" srcset="">
         </div>
         <ul class="navbar-menu">
-            <li class="navbar-menu-item"><a href="#">Home</a></li>
-            <li class="navbar-menu-item"><a href="/prodcutos">Videogames</a></li>
-            <li class="navbar-menu-item"><a href="#">Categories</a></li>
-            <li class="navbar-menu-item"><a href="#">Dashboard</a></li>
+            {{-- <li class="navbar-menu-item"><a href="#">Home</a></li> --}}
+            <li class="navbar-menu-item"><a href="/productos">Videogames</a></li>
+            <li class="navbar-menu-item"><a href="/categorias">Categories</a></li>
+            @auth
+                @if ((Auth::user()->role == 'admin'))
+                <li class="navbar-menu-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                @endif
+            @endauth
             <li class="navbar-menu-item"><a href="#">????</a></li>
             <li class="navbar-menu-item">
                 @auth
@@ -38,22 +42,37 @@
                 @auth
                     <div>{{ Auth::user()->name }}</div>
                 @endauth
+                @guest
+                    <div>Guest</div>
+                @endguest
+                <div></div>
             </div>
             <ul class="navbar-dropdown-menu">
-                <li class="navbar-dropdown-menu-item">
-                    <x-dropdown-link :href="route('profile.edit')">
-                        {{ __('Profile') }}
-                    </x-dropdown-link>
-                </li>
-                <li class="navbar-dropdown-menu-item">
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <x-dropdown-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                        this.closest('form').submit();">
-                            {{ __('Log Out') }}
+                @auth
+                    <li class="navbar-dropdown-menu-item">
+                        <x-dropdown-link :href="route('profile.edit')">
+                            {{ __('Profile') }}
                         </x-dropdown-link>
-                    </form>
+                    </li>
+                @endauth
+                <li class="navbar-dropdown-menu-item">
+                    @auth
+
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <x-dropdown-link :href="route('logout')"
+                                onclick="event.preventDefault();
+                        this.closest('form').submit();">
+                                {{ __('Log Out') }}
+                            </x-dropdown-link>
+                        </form>
+                    @endauth
+                    @guest
+                        <a href="{{ route('login') }}">Log in</a>
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Register</a>
+                        @endif
+                    @endguest
                 </li>
             </ul>
         </div>
