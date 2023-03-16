@@ -1,13 +1,9 @@
+@include('layouts.navbar')
 <div>
     <div>
         <div>
             <h2>Lista de categorias</h2>
         </div>
-        @if (Auth::user()->role == 'admin')
-        <div>
-            <a href="/categorias/create"> Crear nueva categoria</a>
-        </div>
-        @endif
     </div>
 </div>
 

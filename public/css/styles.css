@@ -13,3 +13,14 @@ img{
 .icon{
     width: 32px;
 }
+
+body{
+    background-color: #4618ac;
+    /* background-color: #23049D; */
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #252525;
+    overflow-x: hidden;
+}
