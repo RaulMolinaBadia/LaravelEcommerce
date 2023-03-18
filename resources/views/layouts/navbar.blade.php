@@ -8,15 +8,15 @@
             <img class="icon" src="/img/icon64.png" alt="" srcset="">
         </div>
         <ul class="navbar-menu">
-            {{-- <li class="navbar-menu-item"><a href="#">Home</a></li> --}}
-            <li class="navbar-menu-item"><a href="/productos">Videogames</a></li>
-            <li class="navbar-menu-item"><a href="/categorias">Categories</a></li>
+            <li class="navbar-menu-item"><a href="/">Home</a></li>
+            <li class="navbar-menu-item"><a href="/productos">Catalog</a></li>
+            <li class="navbar-menu-item"><a href="/categorias">Games Categories</a></li>
             @auth
-                @if ((Auth::user()->role == 'admin'))
-                <li class="navbar-menu-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                @if (Auth::user()->role == 'admin')
+                    <li class="navbar-menu-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
                 @endif
             @endauth
-            <li class="navbar-menu-item"><a href="#">????</a></li>
+            {{-- <li class="navbar-menu-item"><a href="#">????</a></li> --}}
             <li class="navbar-menu-item">
                 @auth
                     {{-- @if (Auth::user()->role == 'admin')
@@ -43,7 +43,7 @@
                     <div>{{ Auth::user()->name }}</div>
                 @endauth
                 @guest
-                    <div>Guest</div>
+                    <a href="{{ route('login') }}">Guest</a>
                 @endguest
                 <div></div>
             </div>

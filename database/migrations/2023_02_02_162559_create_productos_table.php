@@ -19,9 +19,7 @@ return new class extends Migration
             $table->string('descripcion');
             $table->string('imagen');
             $table->double('precio');
-            // $table->unsignedBigInteger('categoria_id');
             $table->foreignId('categoria_id')->constrained();
-            // $table->foreignId('categoria_id')->references('id')->on('categorias');
             $table->timestamps();
         });
     }

@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\MasterController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\CartController;
-
+use App\Http\Controllers\ManageController;
+use App\Http\Controllers\UserController;
 
 // PRODUCTOS
 Route::get('/productos', [ProductosController::class, 'index']);
@@ -32,14 +34,22 @@ Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.up
 Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
 Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
 
+// USERS
+Route::get('/usuarios', [UserController::class, 'index'])->middleware('CheckRoleUser');
+Route::get('/usuarios/create', [UserController::class, 'create'])->middleware('CheckRoleUser');
+Route::post('usuarioss', [UserController::class, 'store'])->middleware('CheckRoleUser');
+Route::get('/usuarios/{id}', [UserController::class, 'show'])->middleware('CheckRoleUser');
+Route::get('/usuarios/{id}/edit', [UserController::class, 'edit'])->middleware('CheckRoleUser');
+Route::put('/usuarios/{id}', [UserController::class, 'update'])->middleware('CheckRoleUser');
+Route::get('/usuarios/{id}/delete', [UserController::class, 'destroy'])->middleware('CheckRoleUser');
+
 Route::get('/welcome', function () {
     return view('welcome');
 });
+
 Route::get('/', [ProductosController::class, 'index']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [MasterController::class, 'index'])->middleware('CheckRoleUser')->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

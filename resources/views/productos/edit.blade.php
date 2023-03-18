@@ -1,3 +1,5 @@
+@include('layouts.navbar')
+<link rel="stylesheet" href="{{ asset('./css/styles.css') }}">
 <div>
     <h1>Editar producto</h1>
     <form method="POST" action="/productos/{{ $productos->id }}">
@@ -17,14 +19,16 @@
         </div>
         <div>
             <label for="precio">Precio</label>
-            <input type="number" step="0.01" id="precio" name="precio" value="{{ $productos->precio }}" required>
+            <input type="number" step="0.01" id="precio" name="precio" value="{{ $productos->precio }}"
+                required>
         </div>
         <div>
             <label for="categoria_id">Categoría</label>
             <select id="categoria_id" name="categoria_id" required>
                 <option value="">Seleccionar categoría</option>
                 @foreach ($categorias as $categoria)
-                    <option value="{{ $categoria->id }}" {{ $categoria->id == $productos->categoria_id ? 'selected' : '' }}>{{ $categoria->id }}</option>
+                    <option value="{{ $categoria->id }}"
+                        {{ $categoria->id == $productos->categoria_id ? 'selected' : '' }}>{{ $categoria->id }}</option>
                 @endforeach
             </select>
         </div>

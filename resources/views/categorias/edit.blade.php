@@ -1,3 +1,5 @@
+@include('layouts.navbar')
+<link rel="stylesheet" href="{{ asset('./css/styles.css') }}">
 <div>
     <h1>Editar categoria</h1>
     <form method="POST" action="/categorias/{{ $categorias->id }}">

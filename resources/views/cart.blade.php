@@ -1,5 +1,6 @@
 @include('layouts.navbar')
 <link rel="stylesheet" href="{{ asset('./css/cart.css') }}">
+<link rel="stylesheet" href="{{ asset('./css/styles.css') }}">
 <main class="cart-page">
     <div class="container">
         <div class="row">
@@ -12,7 +13,7 @@
                 <h3 class="page-title">Carts</h3>
                 <div class="cart-items">
                     <div class="table-header">
-                        <div class="item-image">&nbsp;</div>
+                        <div class="item-image">Image</div>
                         <div class="item-name">Name</div>
                         <div class="item-quantity">Quantity</div>
                         <div class="item-price">Price</div>
@@ -34,9 +35,8 @@
                                 <form action="{{ route('cart.update') }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $item->id }}">
-                                    <input type="text" name="quantity" value="{{ $item->quantity }}"
-                                        class="form-control">
-                                    <button class="update-btn">Update</button>
+                                        <input type="text" value="{{ $item->quantity }}" name="quantity" class="input">
+                                    <button class="update-btn btn">Update</button>
                                 </form>
                             </div>
                             <div class="item-price">
@@ -46,14 +46,16 @@
                                 <form action="{{ route('cart.remove') }}" method="POST">
                                     @csrf
                                     <input type="hidden" value="{{ $item->id }}" name="id">
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                        class="icon icon-tabler icon-tabler-circle-x" width="44" height="44"
-                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <circle cx="12" cy="12" r="9" />
-                                        <path d="M10 10l4 4m0 -4l-4 4" />
-                                    </svg>
+                                    <button class="remove-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="icon icon-tabler icon-tabler-circle-x" width="44" height="44"
+                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <circle cx="12" cy="12" r="9" />
+                                            <path d="M10 10l4 4m0 -4l-4 4" />
+                                        </svg>
+                                    </button>
                                 </form>
                             </div>
                         </div>
@@ -64,7 +66,7 @@
                     <div class="cart-actions">
                         <form action="{{ route('cart.clear') }}" method="POST">
                             @csrf
-                            <button class="clear-btn">Clear Cart</button>
+                            <button class="clear-btn btn">Clear Cart</button>
                         </form>
                     </div>
                 </div>

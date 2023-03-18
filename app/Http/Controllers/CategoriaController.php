@@ -56,4 +56,10 @@ class CategoriaController extends Controller
         $categorias->delete();
         return redirect('/categorias');
     }
+
+    public function getCategories()
+    {
+        $categorias = Categoria::all();
+        return $categorias;
+    }
 }
