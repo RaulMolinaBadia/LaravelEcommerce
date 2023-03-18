@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 # *
 # !.gitignore
+=======
+*
+!.gitignore
+>>>>>>> f5df9acd495e278bc7d11b77e2a9c5290a3fe3c9
