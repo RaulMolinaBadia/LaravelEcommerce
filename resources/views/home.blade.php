@@ -4,23 +4,17 @@
 <link rel="stylesheet" href="{{ asset('./css/productos.css') }}">
 <link rel="stylesheet" href="{{ asset('./css/buttons.css') }}">
 <link rel="stylesheet" href="{{ asset('./css/cards.css') }}">
-<script defer src="/a.js"></script>
+<link rel="stylesheet" href="{{ asset('./css/cart.css') }}">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 
 
-
-@if (Route::currentRouteName() == 'productos')
-    @include('layouts.searchbar')
-@else
-    <div>
-        <h2>Videogames</h2>
-    </div>
-@endif
-
+<div>
+    <h2>Videogames</h2>
+</div>
 <div class="containerProducts">
     @foreach ($productos as $producto)
-        <div class="card" id="{{ $producto->nombre }}">
-            <a href="/productos/{{ $producto->id }}">
+        <div class="card" id={{ $producto->nombre }}>
+            <a href="/producto/{{ $producto->id }}">
                 <img src="{{ $producto->imagen }}" alt="{{ $producto->nombre }}">
                 <p class="card-title"><strong>Nombre:</strong> {{ $producto->nombre }}</p>
                 {{-- <p class="card-text"><strong>Descripcion:</strong> {{ $producto->descripcion }}</p> --}}

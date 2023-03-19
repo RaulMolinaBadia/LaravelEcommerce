@@ -10,7 +10,11 @@
 }
 .column {
     width: 40%;
+    display: flex;
     margin: 0 5%;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
 }
 img {
     width: 100px;
@@ -43,10 +47,17 @@ button {
 
 table {
     min-width: 400px;
+    background-color: #32117d;
+    padding: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
 td {
-    height: 150px;
+    min-height: 150px;
     width: 150px;
 }
 
@@ -56,6 +67,7 @@ td {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-width: 150px;
 }
 
 .accions button {

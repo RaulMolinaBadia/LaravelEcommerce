@@ -9,11 +9,12 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ManageController;
 use App\Http\Controllers\UserController;
 
+Route::get('/', [ProductosController::class, 'index'])->name('home');
 // PRODUCTOS
-Route::get('/productos', [ProductosController::class, 'index']);
+Route::get('/productos', [ProductosController::class, 'index'])->name('productos');
 Route::get('/productos/create', [ProductosController::class, 'create'])->middleware('CheckRoleUser');
 Route::post('/productos', [ProductosController::class, 'store']);
-Route::get('/productos/{id}', [ProductosController::class, 'show']);
+Route::get('/productos/{id}', [ProductosController::class, 'show'])->name('specificProduct');
 Route::get('/productos/{id}/edit', [ProductosController::class, 'edit'])->middleware('CheckRoleUser');
 Route::put('/productos/{id}', [ProductosController::class, 'update'])->middleware('CheckRoleUser');
 Route::get('/productos/{id}/delete', [ProductosController::class, 'destroy'])->middleware('CheckRoleUser');
@@ -43,9 +44,6 @@ Route::get('/usuarios/{id}/edit', [UserController::class, 'edit'])->middleware('
 Route::put('/usuarios/{id}', [UserController::class, 'update'])->middleware('CheckRoleUser');
 Route::get('/usuarios/{id}/delete', [UserController::class, 'destroy'])->middleware('CheckRoleUser');
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
 
 Route::get('/', [ProductosController::class, 'index']);
 

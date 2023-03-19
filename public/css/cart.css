@@ -70,7 +70,7 @@
     color: #fff;
     padding: 50px 0;
 }
-.page-title{
+.page-title {
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
@@ -172,7 +172,7 @@
 .alert-success p {
     color: #4618ac;
 }
-.btn{
+.btn {
     background-color: #ffdf6b;
     color: #4618ac;
     border: none;
@@ -193,9 +193,9 @@
     width: 50px;
     margin-right: 10px;
     text-align: center;
-  }
-  
-  .input:focus {
+}
+
+.input:focus {
     outline-offset: 5px;
-    background-color: #fff
-  }
+    background-color: #fff;
+}
