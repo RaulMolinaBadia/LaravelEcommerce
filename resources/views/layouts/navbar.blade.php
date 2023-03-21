@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="{{ asset('./css/navbar.css') }}">
-<link rel="stylesheet" href="{{ asset('./css/cart.css') }}">
+{{-- <link rel="stylesheet" href="{{ asset('./css/cart.css') }}"> --}}
 {{-- <script src="{{ asset('./a.js') }}"></script> --}}
 
 <nav class="navbar">

@@ -2,7 +2,72 @@ body {
     margin: 0;
     padding: 0;
 }
+.cart {
+    width: 30px;
+    color: #7c3aed; /* código de color correspondiente al tono "purple-600" */
+}
 
+.add-to-cart-btn {
+    background-color: #ffc233;
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #ffdc00;
+}
+
+.add-to-cart-btn:active {
+    background-color: #ffdc00;
+}
+
+.add-to-cart-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.add-to-cart-btn .icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.add-to-cart-btn .icon:before {
+    content: '\f07a';
+}
+
+.add-to-cart-btn .text {
+    transition: transform 0.3s;
+}
+
+.add-to-cart-btn:active .text {
+    transform: scale(0.95);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.add-to-cart-btn:active:enabled:before {
+    animation: pulse 0.3s ease;
+}
 .navbar {
     background-color: #32117d;
     top: 0;
@@ -52,7 +117,7 @@ body {
 }
 
 .navbar-menu-item a:hover {
-    color: #FFDF6B;
+    color: #ffdf6b;
 }
 
 .navbar-dropdown {
@@ -91,7 +156,7 @@ body {
 }
 
 .navbar-dropdown-menu-item a:hover {
-    color: #FFDF6B;
+    color: #ffdf6b;
 }
 
 .navbar-dropdown:hover .navbar-dropdown-menu {

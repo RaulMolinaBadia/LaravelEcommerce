@@ -17,6 +17,11 @@
     border-bottom: 1px solid #e0e0e0;
 }
 
-.hidden{
+.hidden {
     display: none !important;
+}
+
+.containerForm{
+    background-color: #4618ac;
+    max-width: 100%;
 }
