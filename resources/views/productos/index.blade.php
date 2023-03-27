@@ -36,7 +36,7 @@
                             <input type="hidden" value="{{ $producto->imagen }}" name="image">
                             <input type="hidden" value="1" name="quantity">
                             <button class="add-to-cart-btn">
-                                <i class="fas fa-shopping-cart"></i>
+                                <i class="fas fa-angle-double-left"></i>
                                 <span>Add to Cart</span>
                             </button>
                         </form>
@@ -44,6 +44,5 @@
                 @endauth
             </a>
         </div>
-        {{-- <x-card-videogames :nombre="$producto->nombre" :descripcion="$producto->descripcion" :imagen="$producto->imagen" :precio="$producto->precio" :categoria="$producto->categoria_id" /> --}}
     @endforeach
 </div>
