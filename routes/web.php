@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ManageController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StripePaymentController;
 
 Route::get('/', [ProductosController::class, 'index'])->name('home');
 // PRODUCTOS
@@ -53,6 +54,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::controller(StripePaymentController::class)->group(function(){
+    Route::get('/stripe', [StripePaymentController::class, 'stripe'])->name('stripe.index');
+    Route::post('stripe', 'stripePost')->name('stripe.post');
 });
 
 require __DIR__ . '/auth.php';

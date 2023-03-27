@@ -1,6 +1,9 @@
 @include('layouts.navbar')
 <link rel="stylesheet" href="{{ asset('./css/cart.css') }}">
 <link rel="stylesheet" href="{{ asset('./css/styles.css') }}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></script>
+
+
 <main class="cart-page">
     <div class="container">
         <div class="row">
@@ -35,7 +38,7 @@
                                 <form action="{{ route('cart.update') }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $item->id }}">
-                                        <input type="text" value="{{ $item->quantity }}" name="quantity" class="input">
+                                    <input type="text" value="{{ $item->quantity }}" name="quantity" class="input">
                                     <button class="update-btn btn">Update</button>
                                 </form>
                             </div>
@@ -62,6 +65,7 @@
                     @endforeach
                     <div class="cart-total">
                         Total: <span class="total-price">${{ Cart::getTotal() }}</span>
+                        <a href="/stripe">Pagar</a>
                     </div>
                     <div class="cart-actions">
                         <form action="{{ route('cart.clear') }}" method="POST">

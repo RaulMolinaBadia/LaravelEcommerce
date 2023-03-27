@@ -33,7 +33,7 @@ class ProductosController extends Controller
         $productos->nombre = $request->input('nombre');
         $productos->descripcion = $request->input('descripcion');
         $path = $request->imagen->store('covers', 'public');
-        $productos->imagen = 'storage/' . $path;
+        $productos->imagen = '/storage/' . $path;
         $productos->precio = $request->input('precio');
         $productos->categoria_id = $request->input('categoria_id');
         $productos->save();
@@ -43,8 +43,8 @@ class ProductosController extends Controller
 
     public function show($id)
     {
-        $productos = Producto::findOrFail($id);
-        return view('productos.show', compact('productos'));
+        $producto = Producto::findOrFail($id);
+        return view('productos.show', compact('producto'));
     }
 
     public function edit($id)
