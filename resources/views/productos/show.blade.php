@@ -6,14 +6,24 @@
 
 <div class="product-container">
     <div class="product-image">
-        <img src="{{ $producto->imagen }}" alt="{{ $producto->nombre }}">
+        <img src="/{{ $producto->imagen }}" alt="{{ $producto->nombre }}">
     </div>
     <div class="product-info">
         <h2>{{ $producto->nombre }}</h2>
         <p>{{ $producto->descripcion }}</p>
         <p>Price: {{ $producto->precio }} €</p>
-        <button class="buy-button">Buy Now</button>
-        <button class="review-button">Review Product</button>
+        <div class="buttons-wrapper">
+            <a href="/stripe">
+                <button class="buy-button">
+                    Buy Now
+                </button>
+            </a>
+            {{-- <a href="">
+                <button class="review-button">
+                    Review Product
+                </button>
+            </a> --}}
+        </div>
     </div>
 </div>
 
@@ -23,17 +33,17 @@
     <h3>Recommended Products</h3>
     <div class="product-list">
         <div class="product-item">
-            <img src="{{ $producto->imagen }}" alt="{{ $producto->nombre }}">
+            <img src="/{{ $producto->imagen }}" alt="{{ $producto->nombre }}">
             <h4>{{ $producto->nombre }}</h4>
             <p>Price: {{ $producto->precio }} €</p>
         </div>
         <div class="product-item">
-            <img src="{{ $producto->imagen }}" alt="{{ $producto->nombre }}">
+            <img src="/{{ $producto->imagen }}" alt="{{ $producto->nombre }}">
             <h4>{{ $producto->nombre }}</h4>
             <p>Price: {{ $producto->precio }} €</p>
         </div>
         <div class="product-item">
-            <img src="{{ $producto->imagen }}" alt="{{ $producto->nombre }}">
+            <img src="/{{ $producto->imagen }}" alt="{{ $producto->nombre }}">
             <h4>{{ $producto->nombre }}</h4>
             <p>Price: {{ $producto->precio }} €</p>
         </div>
