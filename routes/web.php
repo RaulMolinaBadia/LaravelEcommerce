@@ -56,9 +56,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::controller(StripePaymentController::class)->group(function(){
-    Route::get('/stripe', [StripePaymentController::class, 'stripe'])->name('stripe.index');
-    Route::post('stripe', 'stripePost')->name('stripe.post');
+Route::controller(StripePaymentController::class)->group(function () {
+    Route::get('/stripe/{price}', [StripePaymentController::class, 'stripe'])->name('stripe.index');
+    Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
 });
 
 require __DIR__ . '/auth.php';

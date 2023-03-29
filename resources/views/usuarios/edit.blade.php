@@ -22,6 +22,6 @@
             <label for="role">role</label>
             <input type="text" id="role" name="role" value="{{ $usuario->role }}" required>
         </div>
-        <button type="submit">Editar usuario</button>
+        <button class="btn" type="submit">Editar usuario</button>
     </form>
 </div>

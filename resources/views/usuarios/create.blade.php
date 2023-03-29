@@ -20,6 +20,6 @@
             <label for="role">role</label>
             <input type="text" id="role" name="role" required>
         </div>
-        <button type="submit">Crear Usuario</button>
+        <button class="btn" type="submit">Crear Usuario</button>
     </form>
 </div>

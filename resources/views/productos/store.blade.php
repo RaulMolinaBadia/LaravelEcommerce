@@ -1,5 +1,7 @@
 @include('layouts.navbar')
 <link rel="stylesheet" href="{{ asset('./css/styles.css') }}">
+<link rel="stylesheet" href="{{ asset('./css/buttons.css') }}">
+
 <div>
     <div>
         <div>
@@ -37,7 +39,7 @@
                             </select>
                         </div>
 
-                        <button type="submit">Agregar producto</button>
+                        <button class="btn" type="submit">Agregar producto</button>
                     </form>
                 </div>
             </div>

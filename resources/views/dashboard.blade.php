@@ -1,11 +1,13 @@
 <link rel="stylesheet" href="{{ asset('./css/dashboard.css') }}">
 <link rel="stylesheet" href="{{ asset('./css/styles.css') }}">
+<link rel="stylesheet" href="{{ asset('./css/buttons.css') }}">
 <link rel="shortcut icon" href="/img/icon32.png" type="image/x-icon">
 
 @include('layouts.navbar')
 <div class="columns-container">
     <div class="column">
         <h2>MANAGE PRODUCTS</h2>
+        <a class="btn" href="/productos/create">Crear Producto</a>
         <table>
             <thead>
                 <tr>
@@ -28,7 +30,7 @@
                         <td>{{ $producto->precio }}</td>
                         <td>{{ $producto->categoria_id }}</td>
                         <td class="accions">
-                            <button><a class="btn" href="/productos/{{ $producto->id }}/edit">Editar</a></button>
+                            <a class="btn" href="/productos/{{ $producto->id }}/edit">Editar</a>
                             <form action="/productos/{{ $producto->id }}/delete" method="get">
                                 @csrf
                                 @method('DELETE')
@@ -43,6 +45,7 @@
 
     <div class="column">
         <h2>MANAGE CATEGORIES</h2>
+        <a class="btn" href="/categorias/create">Crear Categoria</a>
         <table>
             <thead>
                 <tr>
@@ -57,7 +60,7 @@
                         <td>{{ $categoria->id }}</td>
                         <td>{{ $categoria->nombre }}</td>
                         <td class="accions">
-                            <button><a class="btn" href="/categorias/{{ $categoria->id }}/edit">Editar</a></button>
+                            <a class="btn" href="/categorias/{{ $categoria->id }}/edit">Editar</a>
                             <form action="/categorias/{{ $categoria->id }}/delete" method="get">
                                 @csrf
                                 @method('DELETE')
@@ -69,39 +72,4 @@
             </tbody>
         </table>
     </div>
-
-    {{-- <div class="column">
-        <h2>MANAGE USERS</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Password</th>
-                    <th>Role</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($usuarios as $usuario)
-                    <tr>
-                        <td>{{ $usuario->id }}</td>
-                        <td>{{ $usuario->name }}</td>
-                        <td>{{ $usuario->email }}</td>
-                        <td>{{ $usuario->password }}</td>
-                        <td>{{ $usuario->role }}</td>
-
-                        <td>
-                            <button><a href="/categorias/{{ $categoria->id }}/edit">Editar</a></button>
-                            <form action="/categorias/{{ $categoria->id }}/delete" method="get">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit">Eliminar</button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div> --}}
 </div>

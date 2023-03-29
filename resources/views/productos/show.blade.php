@@ -1,6 +1,7 @@
 @include('layouts.navbar')
 
 <link rel="stylesheet" href="{{ asset('./css/styles.css') }}">
+<link rel="stylesheet" href="{{ asset('./css/buttons.css') }}">
 <link rel="stylesheet" href="{{ asset('./css/productos/show.css') }}">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 
@@ -12,18 +13,20 @@
         <h2>{{ $producto->nombre }}</h2>
         <p>{{ $producto->descripcion }}</p>
         <p>Price: {{ $producto->precio }} €</p>
-        <div class="buttons-wrapper">
-            <a href="/stripe">
-                <button class="buy-button">
-                    Buy Now
-                </button>
-            </a>
-            {{-- <a href="">
+        @auth
+            <div class="buttons-wrapper">
+                <a href="/stripe">
+                    <button class="buy-button">
+                        Buy Now
+                    </button>
+                </a>
+                {{-- <a href="">
                 <button class="review-button">
                     Review Product
                 </button>
             </a> --}}
-        </div>
+            </div>
+        @endauth
     </div>
 </div>
 

@@ -23,7 +23,7 @@
                 <form action="/categorias/{{ $categoria->id }}/delete" method="get">
                     @csrf
                     @method('DELETE')
-                    <button type="submit">Eliminar</button>
+                    <button class="btn" type="submit">Eliminar</button>
                 </form>
         </tr>
     @endforeach

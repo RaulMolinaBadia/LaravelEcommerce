@@ -9,6 +9,6 @@
             <label for="nombre">Nombre</label>
             <input type="text" id="nombre" name="nombre" value="{{ $categorias->nombre }}" required>
         </div>
-        <button type="submit">Editar categoria</button>
+        <button class="btn" type="submit">Editar categoria</button>
     </form>
 </div>

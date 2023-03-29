@@ -8,6 +8,6 @@
             <label for="nombre">Nombre</label>
             <input type="text" id="nombre" name="nombre" required>
         </div>
-        <button type="submit">Crear categoria</button>
+        <button class="btn" type="submit">Crear categoria</button>
     </form>
 </div>

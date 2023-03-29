@@ -19,7 +19,9 @@ body {
     position: relative;
     overflow: hidden;
 }
-
+.add-to-cart-btn span {
+    color: #1f0a4e;
+}
 .add-to-cart-btn:hover {
     background-color: #ffdc00;
 }

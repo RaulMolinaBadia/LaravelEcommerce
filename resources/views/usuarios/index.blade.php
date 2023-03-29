@@ -32,11 +32,11 @@
                     <td>{{ $usuario->role }}</td>
 
                     <td>
-                        <button><a href="/usuarios/{{ $usuario->id }}/edit">Editar</a></button>
+                        <a class="btn" ref="/usuarios/{{ $usuario->id }}/edit">Editar</a>
                         <form action="/usuarios/{{ $usuario->id }}/delete" method="get">
                             @csrf
                             @method('DELETE')
-                            <button type="submit">Eliminar</button>
+                            <button class="btn" type="submit">Eliminar</button>
                         </form>
                     </td>
                 </tr>

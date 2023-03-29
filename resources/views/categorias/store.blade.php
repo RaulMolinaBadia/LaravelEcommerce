@@ -12,7 +12,7 @@
                             <label for="nombre">Nombre</label>
                             <input type="text" name="nombre" id="nombre" required>
                         </div>
-                        <button type="submit">Agregar categoria</button>
+                        <button class="btn" type="submit">Agregar categoria</button>
                     </form>
                 </div>
             </div>

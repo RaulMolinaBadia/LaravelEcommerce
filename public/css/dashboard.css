@@ -16,12 +16,10 @@
     align-items: center;
     flex-wrap: wrap;
 }
+
 img {
     width: 100px;
 }
-/* table {
-    width: 100%;
-} */
 
 td {
     /* border: 1px solid black; */
@@ -30,19 +28,7 @@ td {
 }
 
 .btn {
-    background-color: #ffdf6b;
-    color: #4618ac;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-button {
-    background-color: transparent;
-    border: none;
-    width: fit-content;
+    margin-bottom: 10px;
 }
 
 table {
@@ -61,7 +47,6 @@ td {
     width: 150px;
 }
 
-
 .accions {
     display: flex;
     flex-direction: column;
@@ -72,5 +57,4 @@ td {
 
 .accions button {
     margin-bottom: 10px;
-    width: fit-content;
 }
