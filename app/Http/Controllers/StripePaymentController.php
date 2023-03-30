@@ -36,6 +36,7 @@ class StripePaymentController extends Controller
 
     public function stripe($totalPrice)
     {
+        \Cart::clear();
         Stripe::setApiKey(env('STRIPE_SECRET'));
 
         $session = Session::create([

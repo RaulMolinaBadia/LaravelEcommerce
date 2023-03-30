@@ -1,30 +1,29 @@
 @include('layouts.navbar')
 <link rel="stylesheet" href="{{ asset('./css/styles.css') }}">
+<link rel="stylesheet" href="{{ asset('./css/categorias.css') }}">
 
-<div>
-    <div>
-        <div>
-            <h2>Lista de categorias</h2>
+<div class="categoires-container">
+    <div class="title">
+        <h2>Lista de categorias</h2>
+    </div>
+    <div class="container-data">
+        <div class="container-number">
+            <h4>Nº</h4>
+            @foreach ($categorias as $categoria)
+                <ul>
+                    <li>{{ $categoria->id }}</li>
+                </ul>
+            @endforeach
+        </div>
+        <div class="container-name">
+            <h4>Nombre</h4>
+            @foreach ($categorias as $categoria)
+                <ul>
+                    <li>
+                        {{ $categoria->nombre }}
+                    </li>
+                </ul>
+            @endforeach
         </div>
     </div>
 </div>
-
-<table>
-    <tr>
-        <th>No</th>
-        <th>Nombre</th>
-    </tr>
-    @foreach ($categorias as $categoria)
-        <tr>
-            <td>{{ $categoria->id }}</td>
-            <td>{{ $categoria->nombre }}</td>
-            <td>
-                <a href="/categorias/{{ $categoria->id }}/edit">Editar</a>
-                <form action="/categorias/{{ $categoria->id }}/delete" method="get">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn" type="submit">Eliminar</button>
-                </form>
-        </tr>
-    @endforeach
-</table>

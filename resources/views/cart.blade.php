@@ -67,8 +67,10 @@
                     @endforeach
                     <div class="cart-total">
                         Total: <span class="total-price">${{ Cart::getTotal() }}</span>
-                        <a href="/stripe/{{ Cart::getTotal() }}">Pagar</a>
-
+                        <form action="{{ route('cart.clear') }}" method="POST">
+                            @csrf
+                            <a href="/stripe/{{ Cart::getTotal() }}">Pagar</a>
+                        </form>
                     </div>
                     <div class="cart-actions">
                         <form action="{{ route('cart.clear') }}" method="POST">

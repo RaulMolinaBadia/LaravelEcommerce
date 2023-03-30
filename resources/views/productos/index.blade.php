@@ -5,7 +5,8 @@
 <link rel="stylesheet" href="{{ asset('./css/buttons.css') }}">
 <link rel="stylesheet" href="{{ asset('./css/cards.css') }}">
 <script defer src="/a.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />{{-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"> --}}
 
 
 
@@ -36,7 +37,7 @@
                             <input type="hidden" value="{{ $producto->imagen }}" name="image">
                             <input type="hidden" value="1" name="quantity">
                             <button class="add-to-cart-btn">
-                                <i class="fas fa-angle-double-left"></i>
+                                <i class="fas fa-cart-shopping"></i>
                                 <span>Add to Cart</span>
                             </button>
                         </form>

@@ -1,0 +1,14 @@
+.container-data {
+    display: grid;
+    grid-template-columns: 50px auto auto;
+    grid-auto-rows: auto;
+    grid-gap: 1rem;
+}
+.container-number,
+.container-name,
+.container-actions {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-direction: column;
+}

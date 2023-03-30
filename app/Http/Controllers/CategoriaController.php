@@ -33,12 +33,12 @@ class CategoriaController extends Controller
         $categorias = Categoria::find($id);
         return view('categorias.show', compact('categorias'));
     }
-
+    
     public function edit($id)
     {
         $categorias = Categoria::find($id);
-        $categorias = Categoria::all();
-        return view('categorias.edit', compact('categorias', 'categorias'));
+        // $categorias = Categoria::all();
+        return view('categorias.edit', compact('categorias'));
     }
 
     public function update(Request $request, $id)
